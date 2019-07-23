@@ -1,6 +1,8 @@
 set(STRUTILS_TESTS_SOURCES
     src/main.cpp
-    src/strutils.cpp
+    src/strutils_contains.cpp
+    src/strutils_replace.cpp
+    src/strutils_split.cpp
 )
 
 add_executable(strutils_tests ${STRUTILS_TESTS_SOURCES})
