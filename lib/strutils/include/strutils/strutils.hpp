@@ -28,4 +28,13 @@ namespace strutils
     [[nodiscard]] extern std::string replace(const std::string& str, const std::string& ocurrence, const std::string& replacement);
 
     extern void replace_in_place(std::string& str, char ocurrence, char replacement);
+
+    [[nodiscard]] extern std::string to_upper(std::string_view str);
+    [[nodiscard]] extern std::string to_lower(std::string_view str);
+    extern void to_upper_in_place(std::string& str);
+    extern void to_lower_in_place(std::string& str);
+
+    [[nodiscard]] extern std::string_view trim_start(std::string_view str);
+    [[nodiscard]] extern std::string_view trim_end(std::string_view str);
+    [[nodiscard]] extern std::string_view trim(std::string_view str);
 }

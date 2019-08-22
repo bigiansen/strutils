@@ -198,4 +198,49 @@ namespace strutils
     {
         std::replace(str.begin(), str.end(), ocurrence, replacement);
     }
+
+    std::string to_upper(std::string_view str)
+    {
+        std::string result;
+        result.reserve(str.size());
+        std::transform(str.cbegin(), str.cend(), std::back_inserter(result), toupper);
+        return result;
+    }
+
+    std::string to_lower(std::string_view str)
+    {
+        std::string result;
+        result.reserve(str.size());
+        std::transform(str.cbegin(), str.cend(), std::back_inserter(result), tolower);
+        return result;
+    }
+
+    void to_upper_in_place(std::string& str)
+    {
+        std::transform(str.begin(), str.end(), str.begin(), toupper);
+    }
+
+    void to_lower_in_place(std::string& str)
+    {
+        std::transform(str.begin(), str.end(), str.begin(), tolower);
+    }
+
+    std::string_view trim_start(std::string_view str)
+    {
+        size_t idx = 0;
+        while(str[idx] == ' ') { ++idx; }
+        return str.substr(idx);
+    }
+
+    std::string_view trim_end(std::string_view str)
+    {
+        size_t idx = str.size() - 1;
+        while(str[idx] == ' ') { --idx; }
+        return str.substr(0, idx + 1);
+    }
+
+    std::string_view trim(std::string_view str)
+    {
+        return trim_end(trim_start(str));
+    }
 }
